@@ -1,4 +1,4 @@
-import { FaSignInAlt, FaSignOutAlt, FaUser } from 'react-icons/fa';
+import { FaSignInAlt, FaSignOutAlt, FaUser, FaStopwatch } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout, reset } from '../features/auth/authSlice';
@@ -19,9 +19,14 @@ function Header() {
         <Link to='/'> GoalSetter</Link>
       </div>
       <ul>
+        <li>
+          <button className='btn' to='/timer'>
+            <FaStopwatch /> Start Timer
+          </button>
+        </li>
         {user ? (
           <li>
-            <button className='btn' onClick={onLogout}>
+            <button className='btn btn-reverse' onClick={onLogout}>
               <FaSignOutAlt /> Logout
             </button>
           </li>
